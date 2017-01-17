@@ -15,10 +15,10 @@ You can import module using 'import' statement or just paste code directly to yo
 
 **Example of use:**
 
-`>>> n = input_int("Please enter a number: ", base=16)
+`>>> n = input_int("Please enter a number: ", base=16)`
 
 Please enter a number: 1a8c
 
->>> print(n)
+`>>> print(n)`
 
-6796`
+6796
