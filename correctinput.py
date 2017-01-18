@@ -18,7 +18,7 @@ def input_float(*message, err="Incorrect input, please try again:"):
         else:
             num = input()
         num = num.replace(',', '.')
-        if num[0] == '.':
+        if num != '' and num[0] == '.':
             num = '0' + num
         try:
             num = float(num)
@@ -38,7 +38,7 @@ def input_num(*message, err="Incorrect input, please try again:"):
         if i == -1 and num.isdecimal():
             return int(num)
         else:
-            if num[0] == '.':
+            if num != '' and num[0] == '.':
                 num = '0' + num
             try:
                 num = float(num)
