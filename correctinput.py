@@ -1,18 +1,33 @@
-def input_int(*message, base=10):
+def input_int(*message, base=10, err="Incorrect input, please try again:"):
     while True:
         if message:                            # if message[0] exists
             num = input(message[0])
         else:
             num = input()
-        num = num.replace(',', '.')
         try:
             num = int(num, base=base)
             return num
         except ValueError:
-            print("Incorrect input, please try again:")
+            print(err)
 
 
-def input_float(*message):
+def input_float(*message, err="Incorrect input, please try again:"):
+    while True:
+        if message:                            # if message[0] exists
+            num = input(message[0])
+        else:
+            num = input()
+        num = num.replace(',', '.')
+        if num[0] == '.':
+            num = '0' + num
+        try:
+            num = float(num)
+            return num
+        except ValueError:
+            print(err)
+
+
+def input_num(*message, err="Incorrect input, please try again:"):
     while True:
         if message:                            # if message[0] exists
             num = input(message[0])
@@ -20,27 +35,13 @@ def input_float(*message):
             num = input()
         num = num.replace(',', '.')
         i = num.find('.')
-        if num[:i].isdecimal() and num[i + 1:].isdecimal():     # if symbols in num before and after point are ONLY decimal digits
-            return float(num)
+        if i == -1 and num.isdecimal():
+            return int(num)
         else:
-            print("Incorrect input, please try again:")
-
-
-def input_num(*message):
-    while True:
-        if message:                            # if message[0] exists
-            num = input(message[0])
-        else:
-            num = input()
-        num = num.replace(',', '.')
-        i = num.find('.')
-        if i == -1:
-            if num.isdecimal():
-                return int(num)
-            else:
-                print("Incorrect input, please try again:")
-        else:
-            if num[:i].isdecimal() and num[i + 1:].isdecimal():     # if symbols in num before and after point are ONLY decimal digits
-                return float(num)
-            else:
-                print("Incorrect input, please try again:")
+            if num[0] == '.':
+                num = '0' + num
+            try:
+                num = float(num)
+                return num
+            except ValueError:
+                print(err)
