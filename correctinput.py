@@ -1,4 +1,4 @@
-def input_int(*message, base=10):
+def input_int(*message, base=10, err="Incorrect input, please try again:"):
     while True:
         if message:                            # if message[0] exists
             num = input(message[0])
@@ -8,10 +8,10 @@ def input_int(*message, base=10):
             num = int(num, base=base)
             return num
         except ValueError:
-            print("Incorrect input, please try again:")
+            print(err)
 
 
-def input_float(*message):
+def input_float(*message, err="Incorrect input, please try again:"):
     while True:
         if message:                            # if message[0] exists
             num = input(message[0])
@@ -22,10 +22,10 @@ def input_float(*message):
         if num[:i].isdecimal() and num[i + 1:].isdecimal():     # if symbols in num before and after point are ONLY decimal digits
             return float(num)
         else:
-            print("Incorrect input, please try again:")
+            print(err)
 
 
-def input_num(*message):
+def input_num(*message, err="Incorrect input, please try again:"):
     while True:
         if message:                            # if message[0] exists
             num = input(message[0])
@@ -37,9 +37,9 @@ def input_num(*message):
             if num.isdecimal():
                 return int(num)
             else:
-                print("Incorrect input, please try again:")
+                print(err)
         else:
             if num[:i].isdecimal() and num[i + 1:].isdecimal():     # if symbols in num before and after point are ONLY decimal digits
                 return float(num)
             else:
-                print("Incorrect input, please try again:")
+                print(err)
