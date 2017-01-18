@@ -4,7 +4,6 @@ def input_int(*message, base=10):
             num = input(message[0])
         else:
             num = input()
-        num = num.replace(',', '.')
         try:
             num = int(num, base=base)
             return num
