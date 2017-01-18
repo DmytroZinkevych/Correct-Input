@@ -18,10 +18,12 @@ def input_float(*message, err="Incorrect input, please try again:"):
         else:
             num = input()
         num = num.replace(',', '.')
-        i = num.find('.')
-        if num[:i].isdecimal() and num[i + 1:].isdecimal():     # if symbols in num before and after point are ONLY decimal digits
-            return float(num)
-        else:
+        if num[0] == '.':
+            num = '0' + num
+        try:
+            num = float(num)
+            return num
+        except ValueError:
             print(err)
 
 
@@ -33,13 +35,13 @@ def input_num(*message, err="Incorrect input, please try again:"):
             num = input()
         num = num.replace(',', '.')
         i = num.find('.')
-        if i == -1:
-            if num.isdecimal():
-                return int(num)
-            else:
-                print(err)
+        if i == -1 and num.isdecimal():
+            return int(num)
         else:
-            if num[:i].isdecimal() and num[i + 1:].isdecimal():     # if symbols in num before and after point are ONLY decimal digits
-                return float(num)
-            else:
+            if num[0] == '.':
+                num = '0' + num
+            try:
+                num = float(num)
+                return num
+            except ValueError:
                 print(err)
