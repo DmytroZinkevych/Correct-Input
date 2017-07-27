@@ -1,5 +1,5 @@
 # Correct Input
-A tiny library for more convenient input of numbers in console<br/><br/>
+A tiny library for more convenient console input of numbers in Python<br/><br/>
 
 Library has functions for input integers and floats. Each function can take a string (text which will be printed in console before input) as an optional argument. Another argument is `err` - message shown in case of incorrect input. This argument has a default value (`Incorrect input, please try again:`) so its specifying is optional.<br/><br/>
 
